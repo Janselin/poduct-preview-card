@@ -1,24 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap');
-
-
-:root { 
-
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap"); :root {
     --dark-cyan: hsl(158, 36%, 37%);
     --cream: hsl(30, 38%, 92%);
     --very-dark-blue: hsl(212, 21%, 14%);
     --dark-grayish-blue: hsl(228, 12%, 48%);
     --white: hsl(0, 0%, 100%);
-
-    --font-headings: 'Fraunces', serif;   
+    --hover: rgb(18, 63, 47);
+    --font-headings: "Fraunces", serif;
 }
 
 * {
     box-sizing: border-box;
-    margin: 0;
+    margin: 0px;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat, sans-serif;
     background-color: var(--cream);
 }
 
@@ -27,26 +23,36 @@ body {
     max-width: 800px;
     min-height: 760px;
     height: 100vh;
-    margin: 0 auto;
+    margin: 0px auto;
     display: grid;
     align-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    animation: 0.8s ease-in 0.6s 1 normal both running fade;
+}
 
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .main__bg {
     height: 100%;
     min-height: 250px;
-    background-image: url('./images/image-product-mobile.jpg');
+    background-image: url("./images/image-product-mobile.jpg");
     background-size: cover;
     background-position: center;
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 0px 0px;
 }
-
 
 .main__texts {
     padding: 1.5em 2em;
     background-color: var(--white);
-    border-radius:  0 0 10px 10px;
+    border-radius: 0px 0px 10px 10px;
 }
 
 .main__product {
@@ -59,7 +65,7 @@ body {
 .main__title {
     font-family: var(--font-headings);
     font-size: 1.8rem;
-    margin: 0.7rem 0;
+    margin: 0.7rem 0px;
     color: var(--very-dark-blue);
     line-height: 1;
 }
@@ -68,14 +74,14 @@ body {
     line-height: 1.5;
     margin-bottom: 1.8em;
     color: var(--dark-grayish-blue);
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .main__price {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     color: var(--dark-cyan);
     font-family: var(--font-headings);
-    letter-spacing: 2px;
+    /* letter-spacing: 1px; */
     display: flex;
     align-items: center;
     gap: 1em;
@@ -83,21 +89,20 @@ body {
 
 .main__sold {
     font-size: initial;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat, sans-serif;
     text-decoration: line-through;
     color: var(--dark-grayish-blue);
 }
 
-
-.main__button:before {
-    content: url('./images/icon-cart.svg');
+.main__button::before {
+    content: url("./images/icon-cart.svg");
     z-index: 10;
 }
-
 
 .main__cta {
     text-decoration: none;
 }
+
 .main__button {
     display: grid;
     grid-auto-flow: column;
@@ -107,11 +112,61 @@ body {
     align-items: center;
     gap: 1em;
     background-color: var(--dark-cyan);
-    padding: 1em 0;
+    padding: 1em 0px;
     margin-top: 1.5em;
     color: var(--white);
+    font-weight: bold;
     border-radius: 8px;
     border: none;
-    
+}
 
+.footer {
+    text-align: center;
+}
+
+
+.footer__link {
+    color: var(--dark-cyan);
+}
+
+
+@media (min-width: 667px) {
+    .main {
+        max-width: 620px;
+    }
+
+    .main__bg {
+        border-radius: 10px 0px 0px 10px;
+        min-height: 476px;
+        background-image: url("./images/image-product-desktop.jpg");
+    }
+
+    .main__texts {
+        border-radius: 0px 10px 10px 0px;
+        height: 100%;        
+        padding-top: 2.5em;
+
+    }
+
+    .main__title {
+        
+        font-size: 2.3rem;
+        margin: 0.7em 0px;
+        line-height: 1;
+    }
+
+    .main__price {
+        margin: 1em 0;
+    }
+
+    .main__paragraph {
+        line-height: 1.7;
+        font-size: 14px;
+    }
+
+
+    .main__button:hover {
+        background-color: var(--hover);
+        cursor: pointer;
+    }
 }
